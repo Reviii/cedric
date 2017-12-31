@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Miljoenjacht</title>
+</head>
+<body>
+
+<p id="0">A typical arithmetic operation takes two numbers and produces a new number.</p>
+<button onclick="editarr(1)" id="1">0.01</button>
+<button onclick="editarr(2)" id="2">0.20</button>
+<button onclick="editarr(3)" id="3">0.50</button>
+<button onclick="editarr(4)" id="4">1</button>
+<button onclick="editarr(5)" id="5">5</button>
+<button onclick="editarr(6)" id="6">10</button>
+<button onclick="editarr(7)" id="7">20</button>
+<button onclick="editarr(8)" id="8">50</button>
+<button onclick="editarr(9)" id="9">100</button>
+<button onclick="editarr(10)" id="10">500</button>
+<button onclick="editarr(11)" id="11">1000</button>
+<button onclick="editarr(12)" id="12">2500</button>
+<button onclick="editarr(13)" id="13">5000</button>
+<button onclick="editarr(14)" id="14">10.000</button>
+<button onclick="editarr(15)" id="15">20.000</button>
+<button onclick="editarr(16)" id="16">30.000</button>
+<button onclick="editarr(17)" id="17">40.000</button>
+<button onclick="editarr(18)" id="18">50.000</button>
+<button onclick="editarr(19)" id="19">100.000</button>
+<button onclick="editarr(20)" id="20">250.000</button>
+<button onclick="editarr(21)" id="21">500.000</button>
+<button onclick="editarr(22)" id="22">750.000</button>
+<button onclick="editarr(23)" id="23">1.000.000</button>
+<button onclick="editarr(24)" id="24">2.000.000</button>
+<button onclick="editarr(25)" id="25">2.500.000</button>
+<button onclick="editarr(26)" id="26">5.000.000</button>
+
+<p id="demo"></p>
+
+<script>
+var arr = [0, 0.01, 0.2, 0.5, 1, 5, 10, 20, 50, 100, 500, 1000, 2500, 5000, 10000, 20000, 30000, 40000, 50000, 100000, 250000, 500000, 750000, 1000000, 2000000, 2500000, 5000000]
+var w = arr.length
+editarr(0)
+function editarr(n) {
+arr[n] = 0
+w--
+document.getElementById(n).style.visibility = "hidden"
+var i = 0
+var x = 0
+while (i < arr.length) {
+x = x + Number(arr[i])/w
+i++
+}
+var rondx = Math.round((x-Math.floor(x))*100)/100
+rondx = rondx.toString()
+if (!isNaN(x)) {
+document.getElementById("demo").innerHTML = coolloop(Math.floor(x).toString())+rondx.slice(1, rondx.length)
+} else {
+document.getElementById("demo").innerHTML = "Error (<a href='https://www.google.nl/#q=0+gedeeld+door+0' target='_blank'>Meer informatie</a>)"
+}
+}
+function coolloop(str) {
+while (str.length < 7) {
+str = "0" + str
+}
+str = str.slice(0, 1)+" "+str.slice(1, 4)+" "+str.slice(4, 7)
+return str
+}
+</script>
+
+</body>
+</html>
